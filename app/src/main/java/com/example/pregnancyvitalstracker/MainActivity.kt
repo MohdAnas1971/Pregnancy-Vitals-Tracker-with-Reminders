@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
        }
 
     fun scheduleVitalsReminder(context: Context) {
-        val request = PeriodicWorkRequestBuilder<ReminderWorker>(1, TimeUnit.MINUTES)
+        val request = PeriodicWorkRequestBuilder<ReminderWorker>(5, TimeUnit.HOURS)
             .build()
 
         WorkManager.getInstance(context).enqueueUniquePeriodicWork(

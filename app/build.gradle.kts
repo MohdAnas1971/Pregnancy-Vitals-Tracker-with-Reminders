@@ -66,27 +66,27 @@ dependencies {
 
 
 // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.2")
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
 // Serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+    implementation(libs.kotlinx.serialization.json)
 
 // Hilt
-    implementation("com.google.dagger:hilt-android:2.57")
+    implementation(libs.hilt.android)
    // kapt("com.google.dagger:hilt-android-compiler:2.57")
-    ksp("com.google.dagger:hilt-android-compiler:2.57")
+    ksp(libs.hilt.android.compiler)
 
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation(libs.androidx.hilt.navigation.compose)
 
 // Room (can stay on ksp)
-    implementation("androidx.room:room-runtime:2.7.2")
-    ksp("androidx.room:room-compiler:2.7.2")
-    implementation("androidx.room:room-ktx:2.7.2")
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 
 // WorkManager
-    implementation("androidx.work:work-runtime-ktx:2.10.2")
+    implementation(libs.androidx.work.runtime.ktx)
 
 // Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+    implementation(libs.kotlinx.coroutines.android)
 
 }
