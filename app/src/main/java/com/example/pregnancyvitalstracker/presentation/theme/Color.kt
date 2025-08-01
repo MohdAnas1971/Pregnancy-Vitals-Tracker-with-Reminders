@@ -1,4 +1,4 @@
-package com.example.pregnancyvitalstracker.ui.theme
+package com.example.pregnancyvitalstracker.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

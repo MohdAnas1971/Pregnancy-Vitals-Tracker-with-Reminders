@@ -1,12 +1,12 @@
-package com.example.pregnancyvitalstracker.di
+package com.example.pregnancyvitalstracker.diHilt
 
 import dagger.Module
 import dagger.hilt.InstallIn
 import android.content.Context
 import androidx.room.Room
-import com.example.pregnancyvitalstracker.data.database.VitalsDatabase
-import com.example.pregnancyvitalstracker.data.model.VitalsDao
-import com.example.pregnancyvitalstracker.data.repository.VitalsRepository
+import com.example.pregnancyvitalstracker.data.local.VitalsDatabase
+import com.example.pregnancyvitalstracker.data.local.dao.VitalsDao
+import com.example.pregnancyvitalstracker.data.repository.VitalsRepositoryImpl
 
 
 import dagger.Provides
@@ -34,7 +34,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideVitalsRepository(dao: VitalsDao): VitalsRepository {
-        return VitalsRepository(dao)
+    fun provideVitalsRepository(dao: VitalsDao): VitalsRepositoryImpl {
+        return VitalsRepositoryImpl(dao)
     }
 }

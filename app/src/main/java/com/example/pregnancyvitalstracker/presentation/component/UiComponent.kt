@@ -1,4 +1,4 @@
-package com.example.pregnancyvitalstracker.ui.screens
+package com.example.pregnancyvitalstracker.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,13 +21,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import com.example.pregnancyvitalstracker.data.model.Vitals
-import com.example.pregnancyvitalstracker.ui.theme.PurpleDark
+import com.example.pregnancyvitalstracker.data.local.entity.EntityVitals
+import com.example.pregnancyvitalstracker.presentation.theme.PurpleDark
 
 @Composable
 fun AddVitalsDialog(
     onDismiss: () -> Unit,
-    onSubmit: (Vitals) -> Unit,
+    onSubmit: (EntityVitals) -> Unit,
 ) {
     var systolic by remember { mutableStateOf("") }
     var diastolic by remember { mutableStateOf("") }
@@ -85,14 +85,14 @@ fun AddVitalsDialog(
             Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.fillMaxWidth()) {
                 Button(onClick = {
                     if (systolic.isNotBlank() && diastolic.isNotBlank()) {
-                        val vitals = Vitals(
+                        val entityVitals = EntityVitals(
                             systolic = systolic.toInt(),
                             diastolic = diastolic.toInt(),
                             heartRate = heartRate.toInt(),
                             weight = weight.toFloat(),
                             babyKicks = babyKicks.toInt()
                         )
-                        onSubmit(vitals)
+                        onSubmit(entityVitals)
                         onDismiss()
                     }
                 },

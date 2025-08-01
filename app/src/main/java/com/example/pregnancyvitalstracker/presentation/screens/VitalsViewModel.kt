@@ -1,11 +1,11 @@
-package com.example.pregnancyvitalstracker.ui.screens
+package com.example.pregnancyvitalstracker.presentation.screens
 
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.pregnancyvitalstracker.data.model.Vitals
-import com.example.pregnancyvitalstracker.data.repository.VitalsRepository
+import com.example.pregnancyvitalstracker.data.local.entity.EntityVitals
+import com.example.pregnancyvitalstracker.data.repository.VitalsRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
@@ -16,16 +16,16 @@ import javax.inject.Inject
 @HiltViewModel
 class VitalsViewModel @Inject constructor(
     application: Application,
-    private val repository: VitalsRepository) : AndroidViewModel(application) {
-    val vitalsList = repository.allVitals.stateIn(
+    private val repository: VitalsRepositoryImpl) : AndroidViewModel(application) {
+    val vitalsList = repository.allEntityVitals.stateIn(
         viewModelScope,
         SharingStarted.WhileSubscribed(5000),
         emptyList()
     )
 
-    fun addVitals(vitals: Vitals) {
+    fun addVitals(entityVitals: EntityVitals) {
         viewModelScope.launch {
-            repository.insert(vitals)
+            repository.insert(entityVitals)
         }
     }
 }

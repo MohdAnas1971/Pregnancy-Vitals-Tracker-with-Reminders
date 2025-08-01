@@ -1,10 +1,10 @@
-package com.example.pregnancyvitalstracker.data.model
+package com.example.pregnancyvitalstracker.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "vitals")
-data class Vitals(
+data class EntityVitals(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val systolic: Int,
