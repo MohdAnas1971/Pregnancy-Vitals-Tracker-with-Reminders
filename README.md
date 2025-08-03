@@ -39,8 +39,14 @@ A simple and helpful Android app built with **Jetpack Compose** that allows expe
 <br/>
 
 ## 📦 Installation
+1.Clone the repository:
 
-1. Clone the repo:
-   ```bash
-  git clone https://github.com/MohdAnas1971/Pregnancy-Vitals-Tracker-with-Reminders.git
-cd Pregnancy-Vitals-Tracker-with-Reminders
+```bash
+   git clone https://github.com/MohdAnas1971/Pregnancy-Vitals-Tracker-with-Reminders.git
+   cd Pregnancy-Vitals-Tracker-with-Reminders
+```
+2.Open the project in Android Studio.
+
+3.Let Gradle sync and build the project.
+
+4.Run the app on an emulator or physical device.
