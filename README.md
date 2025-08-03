@@ -1,2 +1,45 @@
-# Pregnancy-Vitals-Tracker-with-Reminders
-Build an app where users can log and track pregnancy-related vitals. The main screen should display a list of vitals, and users can add new entries through a pop-up dialog. 
+# 🤰 Pregnancy Vitals Tracker
+
+A simple and helpful Android app built with **Jetpack Compose** that allows expecting mothers to **log and track their vitals** during pregnancy. The app sends periodic reminders every 5 hours to help stay on top of health monitoring.
+<br/>
+## 📱 Features
+
+- 📋 **Vitals Logging**: Log Blood Pressure (Systolic/Diastolic), Heart Rate, Weight, and Baby Kicks.
+- 📊 **Vitals History**: View a list of all previously recorded vitals using a sleek Compose-based UI.
+- ⏰ **Reminders**: Get a **notification every 5 hours** to remind you to log vitals.
+- 🧠 **MVVM Architecture**: Clean separation of concerns using ViewModel and Repository pattern.
+- 🗄️ **Room Database**: All vitals are stored locally for offline access.
+- 📡 **Live UI Updates**: Auto-refresh the vitals list with StateFlow.
+
+<br/>
+
+## 🛠️ Tech Stack
+
+| Layer              | Technology            |
+|--------------------|------------------------|
+| Language           | Kotlin                 |
+| UI                 | Jetpack Compose        |
+| Architecture       | MVVM                   |
+| Database           | Room                   |
+| State Management   | StateFlow              |
+| Background Task    | WorkManager            |
+| Dependency Injection | *Optional for scale*  |
+
+<br/>
+
+## 🧩 Screenshots
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/459bc82b-8c83-41e1-9d1f-aa0018c919e3" alt="Main Screen" width="250" height="500" padding="100"/>
+  <img src="https://github.com/user-attachments/assets/2a5edb4b-85a6-46f7-a1d7-8bbe4092fa83" alt="Vitals Dialog" width="250" height="500"/>
+  <img src="https://github.com/user-attachments/assets/your-notification-image" alt="Notification" width="250" height="500"/>
+</p>
+
+
+<br/>
+
+## 📦 Installation
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/yourusername/pregnancy-vitals-tracker.git
+   cd pregnancy-vitals-tracker
