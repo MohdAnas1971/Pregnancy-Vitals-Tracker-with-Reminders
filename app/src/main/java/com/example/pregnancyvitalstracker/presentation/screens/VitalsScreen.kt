@@ -19,11 +19,13 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -36,6 +38,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -57,25 +60,34 @@ fun VitalsScreen(viewModel: VitalsViewModel = hiltViewModel()) {
 
     val vitalsList by viewModel.vitalsList.collectAsState()
 
-    var showDialog by remember { mutableStateOf(false) }
+    var showAddVitalsDialog by remember { mutableStateOf(false) }
+    var showSettingsDialog by remember { mutableStateOf(false) }
+
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {Text("Track My Pregnancy")},
+                actions = {
+                    Row { IconButton(
+                        onClick = {showSettingsDialog= !showSettingsDialog}
+                    ) {
+                        Icon(Icons.Default.Settings, contentDescription = null)
+                    }  }
+
+                },
                 colors = TopAppBarColors(
                     containerColor = Purple70,
                     scrolledContainerColor = Purple70,
                     navigationIconContentColor = Purple70,
                     titleContentColor = Purple70,
-                    actionIconContentColor = Purple70,
+                    actionIconContentColor = Color.White,
 
                 )
             )
         },
-
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { showDialog = true },
+                onClick = { showAddVitalsDialog = true },
                 shape = CircleShape,
                 containerColor = PurpleDark
             ) {
@@ -98,13 +110,18 @@ fun VitalsScreen(viewModel: VitalsViewModel = hiltViewModel()) {
                         VitalsItem(vitals)
                     }
                 }
-                if (showDialog) {
+                if (showAddVitalsDialog) {
 
-                    AddVitalsDialog(onDismiss = { showDialog = false }) { vitals ->
+                    AddVitalsDialog(onDismiss = { showAddVitalsDialog = false }) { vitals ->
                         viewModel.addVitals(vitals)
-                        showDialog = false
+                        showAddVitalsDialog = false
                     }
                 }
+
+                if(showSettingsDialog){
+                    SettingsDialog(onDismiss = {showSettingsDialog=false},viewModel)
+                }
+
             }
         }
     }

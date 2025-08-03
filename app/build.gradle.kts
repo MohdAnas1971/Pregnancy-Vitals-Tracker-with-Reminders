@@ -89,4 +89,9 @@ dependencies {
 // Coroutines
     implementation(libs.kotlinx.coroutines.android)
 
+//Preferences DataStore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+
+
 }

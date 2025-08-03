@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import com.example.pregnancyvitalstracker.notification.NotificationHelper
 import com.example.pregnancyvitalstracker.presentation.screens.VitalsScreen
 import com.example.pregnancyvitalstracker.presentation.theme.PregnancyVitalsTrackerTheme
-import com.example.pregnancyvitalstracker.workManager.VitalsReminderScheduler
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -17,12 +16,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-
-
         NotificationHelper.askNotificationPermission(this)
             NotificationHelper.createNotificationChannel(this)
-        VitalsReminderScheduler.scheduleVitalsReminder(this)
-
         enableEdgeToEdge()
         setContent {
             PregnancyVitalsTrackerTheme {
@@ -30,7 +25,6 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
 }
 
 @Composable

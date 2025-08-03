@@ -8,5 +8,8 @@ import kotlinx.coroutines.flow.Flow
 class VitalsRepositoryImpl(private val dao: VitalsDao): VitalsRepository {
     override val allEntityVitals: Flow<List<EntityVitals>> = dao.getAllVitals()
     override suspend fun insert(entityVitals: EntityVitals) = dao.insertVitals(entityVitals)
+
+
+
 }
 
