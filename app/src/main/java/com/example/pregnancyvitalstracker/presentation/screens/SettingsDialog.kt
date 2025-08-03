@@ -1,5 +1,6 @@
 package com.example.pregnancyvitalstracker.presentation.screens
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,7 +27,7 @@ import com.example.pregnancyvitalstracker.presentation.theme.PurpleDark
 
     var isReminderEnabled =viewModel.isReminderEnabled.collectAsState().value
 
-
+   Log.d("isReminderEnabled","$isReminderEnabled")
 
     AlertDialog(
     onDismissRequest = onDismiss,

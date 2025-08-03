@@ -1,7 +1,6 @@
 package com.example.pregnancyvitalstracker.workManager
 
 import android.content.Context
-import android.util.Log
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
@@ -9,10 +8,9 @@ import java.util.concurrent.TimeUnit
 
 object VitalsReminderScheduler{
     fun scheduleVitalsReminder(context: Context) {
-        val request = PeriodicWorkRequestBuilder<ReminderWorker>(2, TimeUnit.MINUTES)
+        val request = PeriodicWorkRequestBuilder<ReminderWorker>(5, TimeUnit.HOURS)
             .build()
 
-        Log.d("reminder", "return : ${request.tags}, value")
 
         WorkManager.getInstance(context).enqueueUniquePeriodicWork(
             "VitalsReminder",

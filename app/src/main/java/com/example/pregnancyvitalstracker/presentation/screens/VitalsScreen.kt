@@ -63,6 +63,9 @@ fun VitalsScreen(viewModel: VitalsViewModel = hiltViewModel()) {
     var showAddVitalsDialog by remember { mutableStateOf(false) }
     var showSettingsDialog by remember { mutableStateOf(false) }
 
+
+
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -72,7 +75,8 @@ fun VitalsScreen(viewModel: VitalsViewModel = hiltViewModel()) {
                         onClick = {showSettingsDialog= !showSettingsDialog}
                     ) {
                         Icon(Icons.Default.Settings, contentDescription = null)
-                    }  }
+                    }
+                    }
 
                 },
                 colors = TopAppBarColors(
@@ -81,7 +85,6 @@ fun VitalsScreen(viewModel: VitalsViewModel = hiltViewModel()) {
                     navigationIconContentColor = Purple70,
                     titleContentColor = Purple70,
                     actionIconContentColor = Color.White,
-
                 )
             )
         },
