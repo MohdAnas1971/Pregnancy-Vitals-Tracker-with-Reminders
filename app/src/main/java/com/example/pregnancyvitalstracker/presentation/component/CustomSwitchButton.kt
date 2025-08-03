@@ -8,7 +8,6 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.UiMode
 
 @Composable
 fun CustomSwitchWithIcon(checked: Boolean, onChange:(Boolean)-> Unit) {
